@@ -1,0 +1,79 @@
+<div class="sign-wrapper flxLayout">
+  <div class="signup-form">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your details</ng-template>
+          <h2>Create a new account</h2>
+          
+          <mat-form-field>
+            <input matInput placeholder="First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Last name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <mat-form-field width="100%">
+              <input matInput placeholder="Email-Id" size="100" formControlName="firstCtrl" required>
+            </mat-form-field>
+          </div>
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Phone number" formControlName="firstCtrl" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Password" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Confirm password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <div class="flxLayout flx--space__bet">
+            <p class="mini-txt">Already have an account? <a class="col--blue" href="#" routerLink="/login">Signin</a></p>
+            <button mat-raised-button color="primary" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Verify email</ng-template>
+          <h2>Verify your email</h2>
+          <p>Enter the 5 digit verification code send to your email.</p>
+          <mat-form-field class="otp">
+            <input matInput  formControlName="secondCtrl"  maxLength="1" (keyup)="focusNext($event)" required>
+          </mat-form-field>
+          <mat-form-field class="otp">
+            <input matInput  formControlName="secondCtrl" maxLength="1"  (keyup)="focusNext($event)" required>
+          </mat-form-field>
+          <mat-form-field class="otp">
+            <input matInput  formControlName="secondCtrl" maxLength="1" (keyup)="focusNext($event)" required>
+          </mat-form-field>
+          <mat-form-field class="otp">
+            <input matInput  formControlName="secondCtrl" maxLength="1" (keyup)="focusNext($event)" required>
+          </mat-form-field>
+          <mat-form-field class="otp">
+            <input matInput  formControlName="secondCtrl" maxLength="1" (keyup)="focusNext($event)" required>
+          </mat-form-field>
+          <br>
+          <br>
+          <div class="text-right">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

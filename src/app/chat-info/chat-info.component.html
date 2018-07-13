@@ -1,0 +1,29 @@
+<div tabindex="-1" id="mat-dialog-1" role="dialog" aria-labelledby="mat-dialog-title-1" style="transform: none; opacity: 1;">
+  <!---->
+  <div class="ng-star-inserted">
+    <div class="mat-doalog-header">
+      <h1 class="mat-dialog-title flxLayout" mat-dialog-title="" id="mat-dialog-title-1">
+        <img matListAvatar class="my-avatar" width="75px" src="../../assets/images/1451456913_brodie.jpg" alt="...">
+        <div>
+          <span class="fx--1">Henry</span>
+          <p class="mini-txt">henry@domain.com</p>
+        </div>
+      </h1>
+      <button mat-icon-button mat-dialog-close>
+        <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
+      </button>
+    </div>
+    <div class="mat-dialog-content" mat-dialog-content="">
+      <h5 class="site-heading--sm">Active</h5>
+      <span>Today at 1:19 pm</span>
+      <h5 class="site-heading--sm">Status</h5>
+      <p>All your chat message and your friend list will be permanently deleted.</p>
+      <h5 class="site-heading--sm">Contact</h5>
+      <p>+91 7589652313</p>
+    </div>
+    <div class="mat-dialog-actions text-right" mat-dialog-actions="">
+      <button mat-raised-button mat-dialog-close color="warn" *ngIf="!isContactBlocked" cdkfocusinitial="" (click)="blockContact()">{{'block' | uppercase}}</button>
+      <button mat-raised-button mat-dialog-close color="primary" *ngIf="isContactBlocked" cdkfocusinitial="">{{'unblock' | uppercase}}</button>
+    </div>
+  </div>
+</div>

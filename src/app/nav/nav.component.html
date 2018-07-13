@@ -1,0 +1,140 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async)? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">
+      <img matListAvatar class="my-avatar" src="../../assets/images/1451456913_brodie.jpg" alt="...">
+      <span class="fx--1">Henry</span>
+      <button mat-icon-button >
+        <mat-icon matBadge="3" matBadgePosition="above after" matBadgeColor="warn">group</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #accountMenu="matMenu">
+        <button mat-menu-item (click)="openDialog()">
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="settings">
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item>
+          <span>Sign out</span>
+        </button>
+      </mat-menu>
+
+      <mat-menu #settings="matMenu">
+        <button mat-menu-item  [matMenuTriggerFor]="account">Account</button>
+        <button mat-menu-item (click)="openNotificationDialog()">Notifications</button>
+      </mat-menu>
+
+      <mat-menu #account="matMenu">
+        <button mat-menu-item>Security</button>
+        <button mat-menu-item (click)="openChangeNumberDialog()">Change number</button>
+        <button mat-menu-item (click)="openDeleteAccountDialog()">Delete my account</button>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="search-chat">
+      <div class="search-box">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search chat" type="SEARCH" autocomplete="off">
+      </div>
+    </div>
+    <mat-tab-group mat-stretch-tabs>
+      <mat-tab label="CHATS">
+        <mat-nav-list>
+          <a mat-list-item href="#">
+            <img matListAvatar src="../../assets/images/1451456913_brodie.jpg" alt="..." matBadge="22"
+                 matBadgePosition="above after">
+
+            <h3 matLine> Joshef Pine
+              <div class="contact-last-message-time"> Jun 12, 2017</div>
+            </h3>
+            <p matLine class="contact-last-text unread-message">
+              <span class="demo-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit... </span>
+            </p>
+            <span  class="unread-message-count mat-accent-bg ng-tns-c40-44 ng-star-inserted">4</span>
+          </a>
+          <a mat-list-item href="#">
+            <img matListAvatar src="../../assets/images/images.jpg" alt="...">
+            <h3 matLine>Alice Freeman</h3>
+            <p matLine>
+              <span class="demo-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+            </p>
+          </a>
+          <a mat-list-item href="#">
+            <img matListAvatar src="../../assets/images/profile-new-Copy-350x350.jpg" alt="...">
+            <h3 matLine> Nichole leyman </h3>
+            <p matLine>
+              <span class="demo-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit... </span>
+            </p>
+          </a>
+        </mat-nav-list>
+      </mat-tab>
+
+      <mat-tab label="CONTACTS">
+        <mat-nav-list>
+          <a mat-list-item href="#">
+            <mat-icon mat-list-icon>person_add</mat-icon>
+            <h3 matLine> Add new chat </h3>
+          </a>
+
+          <a mat-list-item href="#">
+            <img matListAvatar src="../../assets/images/1451456913_brodie.jpg" alt="..." matBadge="22"
+                 matBadgePosition="above after">
+            <h3 matLine> Joshef Pine </h3>
+            <p matLine>
+              <span class="demo-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit... </span>
+            </p>
+          </a>
+          <a mat-list-item href="#">
+            <img matListAvatar src="../../assets/images/images.jpg" alt="...">
+            <h3 matLine>Alice Freeman</h3>
+            <p matLine>
+              <span class="demo-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+            </p>
+          </a>
+          <a mat-list-item href="#">
+            <img matListAvatar src="../../assets/images/profile-new-Copy-350x350.jpg" alt="...">
+            <h3 matLine> Nichole leyman </h3>
+            <p matLine>
+              <span class="demo-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit... </span>
+            </p>
+          </a>
+        </mat-nav-list>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <img matListAvatar class="my-avatar" src="../../assets/images/1451456913_brodie.jpg" alt="...">
+      <span class="fx--1">Henry</span>
+      <button mat-icon-button [matMenuTriggerFor]="chatMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #chatMenu="matMenu">
+        <button mat-menu-item (click)="openChatInfoDialog()">
+          <span>Contact info</span>
+        </button>
+        <button mat-menu-item>
+          <span>Clear chat</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <chat></chat>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,25 @@
+<div tabindex="-1" id="mat-dialog-1" role="dialog" aria-labelledby="mat-dialog-title-1" style="transform: none; opacity: 1;">
+    <!---->
+    <div class="ng-star-inserted">
+      <div class="mat-doalog-header">
+        <h1 class="mat-dialog-title" mat-dialog-title="" id="mat-dialog-title-1">Notifications</h1>
+        <button mat-icon-button mat-dialog-close>
+          <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
+        </button>
+      </div>
+      <div class="mat-dialog-content" mat-dialog-content="">
+        <p>Get notifiction in background.You will be notified on incoming chat message when the application is running in background.</p>
+      <mat-divider></mat-divider>
+      <div class="flxLayout flx--space__bet" >
+          <h5 *ngIf="notificationState">TURNED ON</h5>
+          <h5 *ngIf="!notificationState">TURNED OFF</h5>
+          <mat-slide-toggle  (change)="onChange($event)" ></mat-slide-toggle>
+      </div>
+      <mat-divider></mat-divider>
+      </div>
+      <div class="mat-dialog-actions text-right" mat-dialog-actions="">
+        <button mat-button mat-dialog-close>{{'cancel' | uppercase}}</button>
+        <button mat-raised-button mat-dialog-close color="primary" cdkfocusinitial="" (click)="changeNotification()">{{'Save' | uppercase}}</button>
+      </div>
+    </div>
+  </div>

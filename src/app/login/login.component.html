@@ -1,0 +1,22 @@
+<div class="sign-wrapper flxLayout">
+  <div class="login-form">
+    <h2>Sign in to your account</h2>
+    <div class="v-gap">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email-id" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field class="full-width">
+        <input type="password" matInput placeholder="Password" [formControl]="password" required>
+        <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flxLayout flx--space__bet">
+      <p class="mini-txt"><a class="col--blue" href="#" routerLink="/signup">Forgot password?</a></p>
+        <button mat-raised-button color="primary" >LOGIN</button>
+      </div>
+      <p class="mini-txt">Doesn't have any account? <a class="col--blue" href="#" routerLink="/signup">Signup</a></p>
+  </div>
+</div>

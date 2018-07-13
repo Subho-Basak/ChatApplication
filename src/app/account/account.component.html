@@ -1,0 +1,34 @@
+<div tabindex="-1" id="mat-dialog-1" role="dialog" aria-labelledby="mat-dialog-title-1" style="transform: none; opacity: 1;">
+  <!---->
+  <div class="ng-star-inserted">
+    <div class="mat-doalog-header">
+      <h1 class="mat-dialog-title" mat-dialog-title="" id="mat-dialog-title-1">Edit profile</h1>
+      <button mat-icon-button mat-dialog-close>
+        <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
+      </button>
+    </div>
+    <div style="font-size: 0.87rem;color: #555;">
+      <mat-icon>account_circle</mat-icon>
+      jenny.dof@gmail.com
+    </div>
+    <div class="mat-dialog-content" mat-dialog-content="">
+      <h5 class="site-heading--sm">Username</h5>
+      <p class="mini-txt">
+        This name will be visible to your friends.
+      </p>
+      <mat-form-field>
+        <input matInput placeholder="Username" [formControl]="userName" required>
+        <mat-error *ngIf="userName.invalid">{{getErrorMessage('userName')}}</mat-error>
+      </mat-form-field>
+      <h5 class="site-heading--sm">Status and Phone number</h5>
+      <mat-form-field>
+        <textarea matInput placeholder="Status" [formControl]="status"></textarea>
+      </mat-form-field>
+      <p>+91 8583866670</p>
+    </div>
+    <div class="mat-dialog-actions text-right" mat-dialog-actions="">
+      <button mat-button mat-dialog-close>{{'cancel' | uppercase}}</button>
+      <button mat-raised-button color="primary" mat-dialog-close cdkfocusinitial="" (click)="updateProfile()">{{'Save' | uppercase}}</button>
+    </div>
+  </div>
+</div>
